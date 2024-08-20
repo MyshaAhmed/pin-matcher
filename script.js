@@ -1,6 +1,7 @@
 //generate event handler
 let generateBtn=document.getElementById('generateBtn');
 generateBtn.addEventListener('click',function(){
+
     let pin=Math.floor(1000 + Math.random() * 9000); // 4 digit random number 
     document.getElementById('generatedPin').value=pin;
 })
@@ -11,6 +12,7 @@ let input=document.getElementById('inputPin');
 let buttons=document.getElementsByClassName('button');
 let arr=Array.from(buttons);
 let string="";
+
 arr.forEach(button =>{
     button.addEventListener('click',(e)=>{
 
@@ -36,8 +38,10 @@ arr.forEach(button =>{
 //submit button event handler
 let submitBtn=document.getElementById('submitBtn');
 submitBtn.addEventListener('click',function(){
+
     const inputPin=document.getElementById('inputPin').value;
     const generatedPin=document.getElementById('generatedPin').value;
+
     if(inputPin==generatedPin)
     {
         document.getElementById('pinMatched').style.display='block';
@@ -47,9 +51,11 @@ submitBtn.addEventListener('click',function(){
     {
         document.getElementById('wrongPin').style.display='block';
         document.getElementById('pinMatched').style.display='none';
+
         let tryValue=document.getElementById('tryLeft').innerHTML;
         let tryNumber=parseInt(tryValue);
         document.getElementById('tryLeft').innerHTML=tryNumber-1;
+
         if (tryNumber<=1) {
             submitBtn.disabled = true;
             document.getElementById('tryLeft').innerHTML='No'
