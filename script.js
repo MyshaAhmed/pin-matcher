@@ -21,7 +21,7 @@ arr.forEach(button =>{
             string="";
             input.value=string;
         }
-        else if(e.target.innerHTML == "<")
+        else if(e.target.innerHTML == '&lt;')
         {
             string=string.substring(0,string.length-1);
             input.value=string;
@@ -31,7 +31,7 @@ arr.forEach(button =>{
             string +=e.target.innerHTML;
             input.value=string; 
         }
-        
+    
     })
 })
 
@@ -46,11 +46,19 @@ submitBtn.addEventListener('click',function(){
     {
         document.getElementById('pinMatched').style.display='block';
         document.getElementById('wrongPin').style.display='none';
+        document.getElementById('noPin').style.display='none';
+    }
+    else if(generatedPin=='')
+    {
+        document.getElementById('noPin').style.display='block';
+        document.getElementById('pinMatched').style.display='none';
+        document.getElementById('wrongPin').style.display='none';
     }
     else
     {
         document.getElementById('wrongPin').style.display='block';
         document.getElementById('pinMatched').style.display='none';
+        document.getElementById('noPin').style.display='none'
 
         let tryValue=document.getElementById('tryLeft').innerHTML;
         let tryNumber=parseInt(tryValue);
